@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+
+    app1:
+        image: cache.app
+        build:
+            context: ./app
+        depends_on:
+            - storage
+            - redis
+        environment:
+            port: 8081
+            args: data.host=storage,data.port=8880,spring.redis.host=redis,spring.redis.port=6379,app.nodes.ports=8081:8082
+        ports:
+            - 8081:8081
+
+    app2:
+        image: cache.app
+        build:
+            context: ./app
+        depends_on:
+            - storage
+            - redis
+        environment:
+            port: 8082
+            args: data.host=storage,data.port=8880,spring.redis.host=redis,spring.redis.port=6379,app.nodes.ports=8081:8082
+        ports:
+            - 8082:8082
+
+    storage:
+        image: cache.storage
+        build:
+            context: ./storage
+        environment:
+            port: 8880
+            response_delay: 2000
+        ports:
+            - 8880:8880
+
+    redis:
+        image: redis
+        restart: always
+        volumes:
+            - ./storage/redis/data:/data
+        ports:
+            - 6379:6379
