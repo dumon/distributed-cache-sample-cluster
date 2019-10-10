@@ -10,7 +10,7 @@ Cache effect easily demonstrated by resource loading time, that showed on page.
  - Data Storage with REST access where App nodes retrieved resources 
  - Redis server as cache-aside resource
 
-## Application usage
+## Cluster usage
 #### Prerequisites on used environment 
  * Installed Docker
  * Installed JDK (1.8+) 
