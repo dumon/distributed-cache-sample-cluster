@@ -1,0 +1,13 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "BlogDto",
+	"type": "object",
+	"javaType" : "com.dumon.cache.BlogDto",
+	"properties" : {
+		"id": { "type": "number" },
+		"title": { "type": "string" },
+		"post": { "type": "string" },
+		"author": { "type": "string" },
+		"creationDate": { "type": "string" }
+	}
+}
