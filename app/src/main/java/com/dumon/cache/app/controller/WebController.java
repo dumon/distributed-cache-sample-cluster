@@ -22,7 +22,7 @@ public class WebController {
     private String nodePorts;
 
     @RequestMapping("/")
-    public String welcome(Map<String, Object> model) {
+    public String welcome(final Map<String, Object> model) {
         model.put("blogIds", getBlogsIds());
         populateAvailableNodes(model);
         return "welcome";

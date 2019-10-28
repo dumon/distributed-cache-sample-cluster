@@ -1,21 +1,23 @@
-# Distributed Cache sample cluster
+# Distributed Cache sample cluster (with Terracotta usage)
 
 ## Description
-Project represents distributed cache effectiveness for few Application nodes (single page web app)
-Resources are retrieving from data source, that responds with delay, but cache saves this time for repeated call from any App's node.
-Cache effect easily demonstrated by resource loading time, that showed on page.
+### Project goal
+Demonstrate distributed cache effectiveness with few clients
+### Cluster setup
+Web-applications + Terracotta as cache provider (synced nodes) + single data storage
+            
 
 ## Cluster setup
- - Two web Application nodes
+ - Three web Application nodes
  - Data Storage with REST access where App nodes retrieved resources 
- - Redis server as cache-aside resource
+ - Two Terracotta nodes as cache provider
 
 ## Cluster usage
 #### Prerequisites on used environment 
  * Installed Docker
  * Installed JDK (1.8+) 
  * ENV var JAVA_HOME with location of a JDK home dir
- * No bind ports on localhost: 8081, 8082
+ * No bind ports on localhost: 8081, 8082, 8083
  
 #### How to run (from project's root dir)
  * Build: ./mvnw clean install

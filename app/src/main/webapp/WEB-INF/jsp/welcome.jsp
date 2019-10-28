@@ -23,7 +23,17 @@
                        success: function(blog){
                            var responseReceivedTime = new Date().getTime();
                            var processedTime = responseReceivedTime - requestTime;
-                           node.innerHTML = "   <h2>" + blog.title + "</h2>\n"
+                           node.innerHTML = "   <table>\n"
+                                            + "     <tr>\n"
+                                            + "         <td><h2>" + blog.title + "</h2></td>\n"
+                                            + "         <td style='width: 20%'></td>\n"
+                                            + "         <td>\n"
+                                            + "             <button class=\"btn btn-default\">\n"
+                                            + "                  <img src=\"reload.png\" height=\"30px\" onclick=\"loadBlog(this.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)\"/>\n"
+                                            + "             </button>\n"
+                                            + "         </td>\n"
+                                            + "     </tr>\n"
+                                            + " </table>\n"
                                             + " <div style='text-align: left'>\n"
                                             + "     <ttextarea>" + blog.post + "</tttextarea>\n"
                                             + " </div>\n"
@@ -55,31 +65,40 @@
     <body>
         <div class="container">
         <div class="jumbotron" style="padding: 20px 50px 20px 100px;">
-            <h1>Distributed cache sample</h1>
-            Project represents distributed cache effectiveness for few App nodes.<br>
-            Resources (blogs) are retrieving from data source, that responds with delay (+2000ms), but cache saves this time for repeated call <u>from any App's node</u>.
+            <h1>Distributed cache sample (with Terracotta usage)</h1>
+            <b>Goal: </b>Demonstrate distributed cache effectiveness with few clients<br>
+            <b>Cluster setup:</b> Web-applications + Terracotta as cache provider (synced nodes) + single data storage (see schema pic.)<br>
+            <b>How it works:</b> Resources (Blogs) are retrieving from data storage, that responds with delay (+2000ms), Cache saves this time for repeated call <u>from any App's node</u>.
+            <br><br>
             <table>
+                <tbody>
+                <tr style="text-align:center">
+                    <th>Steps to grasp cache effect</th>
+                    <th>Application nodes</th>
+                    <th>Cluster schema</th>
+                </tr>
                 <tr>
                     <td>
-                        <br><h2>To grasp cache effect:</h2><br>
                         <ul>
-                            <li>Load resources on first node (blue button)</li>
-                            <li>Go to any other node</li>
-                            <li>Load same resource on second node</li>
+                            <li>Load resource (blue button)</li>
+                            <li>Go to any other App's node</li>
+                            <li>Load same resource</li>
                             <li>Notice, that 'loading time' is significantly improved!</li>
                         </ul>
                     </td>
-                    <td style="width: 20%"></td>
-                    <td style="vertical-align: top; text-align:right">
-                        <br><h2>Application nodes:</h2><br>
-                        <c:forEach items="${nodes}" var="node">
-                            <a href="${node}">${node}</a><br>
-                        </c:forEach>
+                    <td style="vertical-align: top; text-align:left">
+                        <ul style="list-style-type: circle;">
+                            <c:forEach items="${nodes}" var="node">
+                                <li><a href="${node}">${node}</a></li>
+                            </c:forEach>
+                        </ul>
+                    </td>
+                    <td style="text-align: center; width:30%">
+                        <img src="cluster_schema.png" style="width: 50%" alt="cluster schema">
                     </td>
                 </tr>
-            </table>
-            <br>
-            <p style="color: blue">Note: you could repeat test by evicting cached data (button in right corner)</p>
+                </tbody></table>
+            <p style="color: blue"><b>Note:</b> you could repeat test by evicting cached data (red button in right corner)</p>
         </div>
 
         <h2 style="color: chocolate">Available Blogs:</h2>
