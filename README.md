@@ -22,4 +22,5 @@ Web-applications + Terracotta as cache provider (synced nodes) + single data sto
 #### How to run (from project's root dir)
  * Build: ./mvnw clean install
  * Run: docker-compose up --build
+ * Wait for web nodes success run ("[SUCCESS_RUN] nodeName" message in log)
  * Navigate to: http://localhost:8081

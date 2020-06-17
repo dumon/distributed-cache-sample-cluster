@@ -25,7 +25,7 @@
                            var processedTime = responseReceivedTime - requestTime;
                            node.innerHTML = "   <table>\n"
                                             + "     <tr>\n"
-                                            + "         <td><h2>" + blog.title + "</h2></td>\n"
+                                            + "         <td><h2>" + blog.title + " | " + blog.id + "</h2></td>\n"
                                             + "         <td style='width: 20%'></td>\n"
                                             + "         <td>\n"
                                             + "             <button class=\"btn btn-default\">\n"

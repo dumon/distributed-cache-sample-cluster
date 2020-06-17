@@ -1,30 +1,30 @@
 [
   {
-    "title" : "Blog's title | 1",
+    "title" : "Blog's title1",
     "post" : "blog post content blog post content blog post content blog post content blog post content blog post content",
     "author" : "Bot 1",
     "creationDate" : "2019-03-12 18:10:00"
   },
   {
-    "title" : "Blog's title | 2",
+    "title" : "Blog's title2",
     "post" : "blog post content blog post content blog post content blog post content blog post content blog post content",
     "author" : "Bot 2",
     "creationDate" : "2019-03-12 19:10:00"
   },
   {
-    "title" : "Blog's title | 3",
+    "title" : "Blog's title3",
     "post" : "blog post content blog post content blog post content blog post content blog post content blog post content",
     "author" : "Bot 3",
     "creationDate" : "2019-03-12 19:10:00"
   },
   {
-    "title" : "Blog's title | 4",
+    "title" : "Blog's title4",
     "post" : "blog post content blog post content blog post content blog post content blog post content blog post content",
     "author" : "Bot 4",
     "creationDate" : "2019-03-12 19:10:00"
   },
   {
-    "title" : "Blog's title | 5",
+    "title" : "Blog's title5",
     "post" : "blog post content blog post content blog post content blog post content blog post content blog post content",
     "author" : "Bot 5",
     "creationDate" : "2019-03-12 19:10:00"

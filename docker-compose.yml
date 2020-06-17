@@ -7,7 +7,7 @@ networks:
         name: terracotta-net
 
 services:
-    app1:
+    webApp1:
         image: cache.app
         build:
             context: ./app
@@ -16,13 +16,13 @@ services:
             - terracotta-1
         environment:
             port: 8081
-            args: data.host=storage,data.port=8880,cache.node.host=terracotta-1,cache.node.port=9410,app.nodes.ports=8081:8082:8083
+            args: node.name=webApp1,data.host=storage,data.port=8880,cache.node.host=terracotta-1,cache.node.port=9410,app.nodes.ports=8081:8082:8083
         ports:
             - 8081:8081
         networks:
             - terracotta-net
 
-    app2:
+    webApp2:
         image: cache.app
         build:
             context: ./app
@@ -31,13 +31,13 @@ services:
             - terracotta-1
         environment:
             port: 8082
-            args: data.host=storage,data.port=8880,cache.node.host=terracotta-2,cache.node.port=9410,app.nodes.ports=8081:8082:8083
+            args: node.name=webApp2,data.host=storage,data.port=8880,cache.node.host=terracotta-2,cache.node.port=9410,app.nodes.ports=8081:8082:8083
         ports:
             - 8082:8082
         networks:
             - terracotta-net
 
-    app3:
+    webApp3:
         image: cache.app
         build:
             context: ./app
@@ -46,7 +46,7 @@ services:
             - terracotta-2
         environment:
             port: 8083
-            args: data.host=storage,data.port=8880,cache.node.host=terracotta-2,cache.node.port=9410,app.nodes.ports=8081:8082:8083
+            args: node.name=webApp3,data.host=storage,data.port=8880,cache.node.host=terracotta-2,cache.node.port=9410,app.nodes.ports=8081:8082:8083
         ports:
             - 8083:8083
         networks:
@@ -59,6 +59,7 @@ services:
         environment:
             port: 8880
             response_delay: 2000
+            args: node.name=dbApp
         ports:
             - 8880:8880
         networks:
